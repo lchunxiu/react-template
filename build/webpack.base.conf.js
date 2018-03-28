@@ -1,12 +1,21 @@
+/*
+ * @Author: liuchunxiu 
+ * @Date: 2018-03-28 14:41:34 
+ * @Last Modified by: liuchunxiu
+ * @Last Modified time: 2018-03-28 14:51:10
+ */
 'use strict'
 const path = require('path')
+const config = require('../config/index')
+
 module.exports = {
     context:path.resolve(__dirname, ".."),
     entry: {
-        app:'./src/index.js'
+        app:'./src/index.js',
+        another:'./src/another.js',
     },
     output: {
-        path: path.resolve(__dirname, "../static"),
+        path: config.build.assetsRoot,
         filename: '[name].bundle.js'
     },
     resolve: {
