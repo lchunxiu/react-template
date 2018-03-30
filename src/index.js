@@ -1,13 +1,12 @@
 import './index.css'
-import _ from 'lodash'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './module/layout/app'
+import { BrowserRouter as Router } from 'react-router-dom'
 
-console.log('in')
-export default function(){
-  window['test'] = 'test';
-}
-
-console.log(_.join('hello','world'))
-let ele = document.createElement('div');
-ele.innerText = 'hello world';
-ele.setAttribute('class','description')
-document.getElementById('app').appendChild(ele)
+ReactDOM.render(
+  <Router>
+    <App/>
+  </Router>,
+  document.getElementById('root')
+);

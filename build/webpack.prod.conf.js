@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-03-28 14:41:21 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-03-28 15:38:38
+ * @Last Modified time: 2018-03-30 11:54:13
  */
 "use strict";
 const webpack = require("webpack");
@@ -50,7 +50,12 @@ let devWebpackConfig = merge(baseWebpackConfig, {
     new UglifyJsPlugin({
       test: /\.jsx?($|\?)/i,
       parallel: 4,
-      sourceMap: true
+      sourceMap: true,
+      uglifyOptions:{
+        compress:{
+          drop_console:true
+        }
+      }
     }),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
