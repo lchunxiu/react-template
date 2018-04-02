@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-03-28 14:41:34 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-03-30 14:39:46
+ * @Last Modified time: 2018-04-02 18:03:46
  */
 "use strict";
 const path = require("path");
@@ -22,13 +22,13 @@ module.exports = {
     filename: "[name].bundle.js"
   },
   resolve: {
-    extensions: [".js", ".json", ".jsx", ".css"],
+    extensions: [".js"],
     modules: [
         resolve("src"), 
         resolve("node_modules")
     ],
     alias: {
-      
+      stylus:resolve("src/stylus")
     }
   },
   module: {

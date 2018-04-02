@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-03-28 14:41:38 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-03-28 14:46:47
+ * @Last Modified time: 2018-04-02 18:23:37
  */
 'use strict'
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -15,7 +15,11 @@ function generateCSSLoader(prefix,isExtract){
         });
     }
     useCssLoader.push({
-        loader: "css-loader"
+        loader: "css-loader",
+        options:{
+            modules:false,
+            localIdentName: '[path][name]__[local]--[hash:base64:5]'
+        }
       });
     if(prefix !== 'css'){
         useCssLoader.push({
