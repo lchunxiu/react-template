@@ -1,3 +1,9 @@
+/*
+ * @Author: liuchunxiu 
+ * @Date: 2018-04-03 15:48:33 
+ * @Last Modified by:   liuchunxiu 
+ * @Last Modified time: 2018-04-03 15:48:33 
+ */
 import React from "react";
 import { Menu, Icon } from "antd";
 const SubMenu = Menu.SubMenu;
@@ -9,20 +15,27 @@ export default class App extends React.Component {
   };
   render() {
     return (
-    <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-      <Menu.Item key="1">
-        <Icon type="user" />
-        <span>基本管理</span>
-      </Menu.Item>
-      <Menu.Item key="2">
-        <Icon type="video-camera" />
-        <span>nav 2</span>
-      </Menu.Item>
-      <Menu.Item key="3">
-        <Icon type="upload" />
-        <span>nav 3</span>
-      </Menu.Item>
-    </Menu>
+      <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+        <SubMenu
+          key="sub3"
+          title={
+            <span>
+              <Icon type="info-circle-o" /><span>基本信息</span>
+            </span>
+          }
+        >
+          <Menu.Item key="7">Option 7</Menu.Item>
+          <Menu.Item key="8">Option 8</Menu.Item>
+        </SubMenu>
+        <Menu.Item key="2">
+          <Icon type="video-camera" />
+          <span>nav 2</span>
+        </Menu.Item>
+        <Menu.Item key="3">
+          <Icon type="upload" />
+          <span>nav 3</span>
+        </Menu.Item>
+      </Menu>
     );
   }
 }

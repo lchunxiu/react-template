@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-03-28 14:41:21 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-03-30 11:54:13
+ * @Last Modified time: 2018-04-03 17:36:25
  */
 "use strict";
 const webpack = require("webpack");
@@ -24,14 +24,23 @@ let devWebpackConfig = merge(baseWebpackConfig, {
   performance: {
     hints: false
   },
-  optimization: {
-    splitChunks: {
-      minSize: 0,
-      chunks: "all"
-    }
-  },
   devtool: "source-map",
   stats: "errors-only",
+  optimization: {
+    runtimeChunk: {
+      name: "manifest"
+    },
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          priority: -20,
+          chunks: "all"
+        }
+      }
+    }
+  },
   plugins: [
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": '"production"'
@@ -51,9 +60,9 @@ let devWebpackConfig = merge(baseWebpackConfig, {
       test: /\.jsx?($|\?)/i,
       parallel: 4,
       sourceMap: true,
-      uglifyOptions:{
-        compress:{
-          drop_console:true
+      uglifyOptions: {
+        compress: {
+          drop_console: true
         }
       }
     }),
@@ -61,6 +70,7 @@ let devWebpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "index.html",
+      hash: true,
       inject: true,
       minify: {
         removeComments: true,
@@ -83,28 +93,26 @@ let devWebpackConfig = merge(baseWebpackConfig, {
   ]
 });
 
-
 if (config.build.productionGzip) {
-  const CompressionWebpackPlugin = require('compression-webpack-plugin')
+  const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
   devWebpackConfig.plugins.push(
     new CompressionWebpackPlugin({
-      asset: '[path].gz[query]',
-      algorithm: 'gzip',
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
       test: new RegExp(
-        '\\.(' +
-        config.build.productionGzipExtensions.join('|') +
-        ')$'
+        "\\.(" + config.build.productionGzipExtensions.join("|") + ")$"
       ),
       threshold: 10240,
       minRatio: 0.8
     })
-  )
+  );
 }
 
 if (config.build.bundleAnalyzerReport) {
-  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-  devWebpackConfig.plugins.push(new BundleAnalyzerPlugin())
+  const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+    .BundleAnalyzerPlugin;
+  devWebpackConfig.plugins.push(new BundleAnalyzerPlugin());
 }
 
 module.exports = devWebpackConfig;

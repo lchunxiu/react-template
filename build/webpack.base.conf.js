@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-03-28 14:41:34 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-02 18:03:46
+ * @Last Modified time: 2018-04-03 18:22:34
  */
 "use strict";
 const path = require("path");
@@ -15,7 +15,8 @@ module.exports = {
   context: path.resolve(__dirname, ".."),
   entry: {
     app: "./src/index.js",
-    another: "./src/another.js"
+    // login: "./src/module/login/index.js",
+    // layout: "./src/module/layout/index.js"
   },
   output: {
     path: config.build.assetsRoot,
@@ -39,7 +40,7 @@ module.exports = {
         include: [resolve("src")],
         options: {
             presets: ['babel-preset-env',"react"],
-            plugins: ["transform-class-properties"]
+            plugins: ["transform-class-properties","dynamic-import-webpack"]
         }
       },
       {

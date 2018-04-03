@@ -1,0 +1,25 @@
+/*
+ * @Author: liuchunxiu 
+ * @Date: 2018-04-03 15:47:54 
+ * @Last Modified by:   liuchunxiu 
+ * @Last Modified time: 2018-04-03 15:47:54 
+ */
+@import '../../stylus/variables.styl';
+:local(.container){
+    float: right;
+}
+
+:local(.user-area){
+    display: inline-block;
+    margin-right: 5px;
+    padding: 0 10px;
+    &:hover,&.active{
+        cursor: pointer;
+        background-color: $hover-backgroud-color;
+    }
+}
+
+:local(.user-name){
+    margin-left: 5px;
+    font-size: $normal-font-size;
+}

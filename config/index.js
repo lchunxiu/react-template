@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-03-28 14:41:07 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-03-28 15:41:04
+ * @Last Modified time: 2018-04-03 17:37:10
  */
 'use strict'
 const path = require('path')
@@ -16,7 +16,7 @@ module.exports = {
         assetsRoot: path.resolve(__dirname, '../dist'),
         assetsSubDirectory: 'assets',
         productionGzip:false,
-        bundleAnalyzerReport:false,
+        bundleAnalyzerReport:true,
         productionGzipExtensions:['js','css']
     }
 }
