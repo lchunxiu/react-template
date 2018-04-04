@@ -2,16 +2,19 @@
  * @Author: liuchunxiu 
  * @Date: 2018-04-03 15:48:02 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-03 18:33:31
+ * @Last Modified time: 2018-04-04 16:42:29
  */
 import styles from  './index.styl';
 import React from "react";
 import { Layout,Icon } from "antd";
+import {Redirect} from 'react-router-dom';
 import LeftMenu from "./sider";
 import BottomFooter from './footer';
 import RightHeader from './header';
+import {inject, observer} from 'mobx-react';
 const { Header, Footer, Sider, Content } = Layout;
 
+@inject(store=>({isAuthentic:store.userStore.userInfo.isAuthentic})) @observer
 export default class Index extends React.Component {
   state={
     collapsed:false
@@ -22,6 +25,9 @@ export default class Index extends React.Component {
     });
   }
   render() {
+    if(!this.props.isAuthentic){
+      return <Redirect to='/login' />;
+    }
     return (
         <Layout className={styles.layout}>
           <Sider 

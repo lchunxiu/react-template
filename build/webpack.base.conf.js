@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-03-28 14:41:34 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-03 18:22:34
+ * @Last Modified time: 2018-04-04 15:32:09
  */
 "use strict";
 const path = require("path");
@@ -39,8 +39,8 @@ module.exports = {
         loader: "babel-loader?cacheDirectory=true",
         include: [resolve("src")],
         options: {
-            presets: ['babel-preset-env',"react"],
-            plugins: ["transform-class-properties","dynamic-import-webpack"]
+            presets: ["babel-preset-env","react"],
+            plugins: ["transform-decorators-legacy","transform-class-properties","dynamic-import-webpack"]
         }
       },
       {
