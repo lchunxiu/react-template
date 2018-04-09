@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-04-04 16:46:04 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-04 16:46:41
+ * @Last Modified time: 2018-04-09 11:09:19
  */
 import styles from "./form.styl";
 import React from "react";
@@ -11,12 +11,13 @@ import { Form, Icon, Input, Button, Checkbox } from "antd";
 import { inject, observer } from "mobx-react";
 const FormItem = Form.Item;
 
+@Form.create()
 @inject(store => ({
   authentic: store.userStore.userInfo.authentic,
   isAuthentic: store.userStore.userInfo.isAuthentic
 }))
 @observer
-class NormalLoginForm extends React.Component {
+export default class NormalLoginForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -76,4 +77,4 @@ class NormalLoginForm extends React.Component {
   }
 }
 
-export default Form.create()(NormalLoginForm);
+// export default Form.create()(NormalLoginForm);

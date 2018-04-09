@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-04-03 15:48:37 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-04 16:48:32
+ * @Last Modified time: 2018-04-09 16:27:27
  */
 import {observable,computed,action, runInAction} from 'mobx';
 
@@ -35,4 +35,4 @@ class UserInfo{
     }
 }
 
-export default new UserInfo();
+export default UserInfo;
