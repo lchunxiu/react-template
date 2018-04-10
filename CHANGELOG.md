@@ -1,3 +1,13 @@
+<a name="1.0.3"></a>
+## [1.0.3](https://github.com/lchunxiu/react-template/compare/v1.0.2...v1.0.3) (2018-04-10)
+
+
+### Performance Improvements
+
+* **性能分析，按需加载:** antd,moment ([22caeb7](https://github.com/lchunxiu/react-template/commit/22caeb7))
+
+
+
 <a name="1.0.2"></a>
 ## [1.0.2](https://github.com/lchunxiu/react-template/compare/v1.0.1...v1.0.2) (2018-03-28)
 
