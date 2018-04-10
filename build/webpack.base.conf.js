@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-03-28 14:41:34 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-08 16:19:22
+ * @Last Modified time: 2018-04-10 16:13:07
  */
 "use strict";
 const path = require("path");
@@ -14,7 +14,7 @@ function resolve(dir) {
 module.exports = {
   context: path.resolve(__dirname, ".."),
   entry: {
-    app: "./src/index.js",
+    app: "./src/index.js"
     // login: "./src/module/login/index.js",
     // layout: "./src/module/layout/index.js"
   },
@@ -24,12 +24,9 @@ module.exports = {
   },
   resolve: {
     extensions: [".js"],
-    modules: [
-        resolve("src"), 
-        resolve("node_modules")
-    ],
+    modules: [resolve("src"), resolve("node_modules")],
     alias: {
-      stylus:resolve("src/stylus")
+      stylus: resolve("src/stylus")
     }
   },
   module: {
@@ -39,8 +36,16 @@ module.exports = {
         loader: "babel-loader?cacheDirectory=true",
         include: [resolve("src")],
         options: {
-            presets: ["babel-preset-env","react"],
-            plugins: ["transform-decorators-legacy","transform-class-properties","dynamic-import-webpack"]
+          presets: ["babel-preset-env", "react"],
+          plugins: [
+            "transform-decorators-legacy",
+            "transform-class-properties",
+            "dynamic-import-webpack",
+            [
+              "import",//antd的按需加载
+              { libraryName: "antd", libraryDirectory: "es", style: "css" }
+            ]
+          ]
         }
       },
       {

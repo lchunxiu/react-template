@@ -1,35 +1,30 @@
 /*
  * @Author: liuchunxiu 
- * @Date: 2018-04-04 15:21:09 
- * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-09 17:51:58
- */
-/*
- * @Author: liuchunxiu 
- * @Date: 2018-04-04 15:21:07 
- * @Last Modified by:   liuchunxiu 
- * @Last Modified time: 2018-04-04 15:21:07 
- */
-/*
- * @Author: liuchunxiu 
  * @Date: 2018-04-03 11:02:16 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-04 15:20:33
+ * @Last Modified time: 2018-04-10 11:30:25
  */
-import './stylus/index.styl'
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './module/app'
-import { onError,Provider } from "mobx-react";
-import store from './store';
+import "./stylus/index.styl";
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./module/app";
+import { onError, Provider } from "mobx-react";
+import store from "./store";
+import { LocaleProvider } from "antd";
+import zh_CN from "antd/lib/locale-provider/zh_CN";
+import moment from "moment";
+import "moment/locale/zh-cn";
+moment.locale("zh-cn");
 
 ReactDOM.render(
-  <Provider userStore={store}>
-    <App/>
-  </Provider>,
-  document.getElementById('root')
+  <LocaleProvider locale={zh_CN}>
+    <Provider userStore={store}>
+      <App />
+    </Provider>
+  </LocaleProvider>,
+  document.getElementById("root")
 );
 
-onError((error) => {
-  console.log('mobx-react error：',error);
+onError(error => {
+  console.log("mobx-react error：", error);
 });

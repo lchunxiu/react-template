@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-03-28 14:41:21 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-04 09:39:05
+ * @Last Modified time: 2018-04-10 17:04:16
  */
 "use strict";
 const webpack = require("webpack");
@@ -56,6 +56,14 @@ let devWebpackConfig = merge(baseWebpackConfig, {
       },
       allChunks: true
     }),
+    //create-react-app 不存在这个问题---记录下
+    // 优化moment默认加载所有语言文件 https://webpack.js.org/plugins/context-replacement-plugin/#src/components/Sidebar/Sidebar.jsx
+    new webpack.ContextReplacementPlugin(
+      /moment[\/\\]locale$/,
+      /zh-cn/
+    ),
+    //https://webpack.js.org/plugins/ignore-plugin/
+    // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new UglifyJsPlugin({
       test: /\.jsx?($|\?)/i,
       parallel: 4,
