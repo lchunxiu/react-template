@@ -1,3 +1,8 @@
+<a name="1.0.4"></a>
+## [1.0.4](https://github.com/lchunxiu/react-template/compare/v1.0.3...v1.0.4) (2018-04-11)
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/lchunxiu/react-template/compare/v1.0.2...v1.0.3) (2018-04-10)
 
