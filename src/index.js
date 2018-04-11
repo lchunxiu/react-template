@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-04-03 11:02:16 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-10 11:30:25
+ * @Last Modified time: 2018-04-11 18:18:54
  */
 import "./stylus/index.styl";
 import React from "react";
@@ -17,7 +17,7 @@ import "moment/locale/zh-cn";
 moment.locale("zh-cn");
 
 ReactDOM.render(
-  <LocaleProvider locale={zh_CN}>
+  <LocaleProvider locale={zh_CN}> 
     <Provider userStore={store}>
       <App />
     </Provider>
