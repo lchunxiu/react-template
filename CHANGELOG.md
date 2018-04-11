@@ -1,3 +1,13 @@
+<a name="1.0.6"></a>
+## [1.0.6](https://github.com/lchunxiu/react-template/compare/v1.0.5...v1.0.6) (2018-04-11)
+
+
+### Bug Fixes
+
+* **all:** 测试下changelog ([6cc46b3](https://github.com/lchunxiu/react-template/commit/6cc46b3))
+
+
+
 <a name="1.0.5"></a>
 ## [1.0.5](https://github.com/lchunxiu/react-template/compare/v1.0.4...v1.0.5) (2018-04-11)
 
