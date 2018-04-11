@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --color --config build/webpack.dev.conf.js",
     "build": "webpack --config build/webpack.prod.conf.js",
     "start": "npm run dev",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
   "keywords": [
@@ -38,6 +38,7 @@
     "html-webpack-plugin": "^3.1.0",
     "less": "^3.0.1",
     "less-loader": "^4.1.0",
+    "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.8.3",
     "sass-loader": "^6.0.7",
     "source-map-explorer": "^1.5.0",
@@ -54,6 +55,7 @@
   },
   "dependencies": {
     "antd": "^3.3.3",
+    "axios": "^0.18.0",
     "lodash": "^4.17.5",
     "mobx": "^4.1.1",
     "mobx-react": "^5.0.0",

@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-03-28 14:41:21 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-10 17:04:16
+ * @Last Modified time: 2018-04-11 11:46:14
  */
 "use strict";
 const webpack = require("webpack");
@@ -43,7 +43,8 @@ let devWebpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env.NODE_ENV": '"production"'
+      "process.env.NODE_ENV": '"production"',
+      "process.env.NODE_PATH":'"src"'
     }),
     new CleanWebpackPlugin(["*"], {
       root: config.build.assetsRoot,

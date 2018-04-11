@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-03-28 14:41:27 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-04 09:39:05
+ * @Last Modified time: 2018-04-11 11:47:51
  */
 "use strict";
 const path = require("path");
@@ -41,7 +41,8 @@ let devWebpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env.NODE_ENV": '"development"'
+      "process.env.NODE_ENV": '"development"',
+      "process.env.NODE_PATH":'"src"'
     }),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
@@ -53,5 +54,10 @@ let devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.HotModuleReplacementPlugin()
   ]
 });
+
+if(config.dev.isMock){
+  devWebpackConfig.entry.mock =config.dev.mockUrl || "./src/mock/index.js";
+}
+
 
 module.exports = devWebpackConfig;
