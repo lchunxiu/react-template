@@ -2,7 +2,7 @@
  * @Author: liuchunxiu 
  * @Date: 2018-04-03 15:48:02 
  * @Last Modified by: liuchunxiu
- * @Last Modified time: 2018-04-04 16:42:29
+ * @Last Modified time: 2018-04-18 15:21:23
  */
 import styles from  './index.styl';
 import React from "react";
@@ -12,6 +12,7 @@ import LeftMenu from "./sider";
 import BottomFooter from './footer';
 import RightHeader from './header';
 import {inject, observer} from 'mobx-react';
+import MyContent from './content';
 const { Header, Footer, Sider, Content } = Layout;
 
 @inject(store=>({isAuthentic:store.userStore.userInfo.isAuthentic})) @observer
@@ -47,7 +48,7 @@ export default class Index extends React.Component {
               />
               <RightHeader/>
             </Header>
-            <Content className={styles.content}>Content</Content>
+            <Content className={styles.content}><MyContent/></Content>
             <Footer>
               <BottomFooter/>
             </Footer>
